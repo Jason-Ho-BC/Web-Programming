@@ -1,0 +1,131 @@
+/*
+Index
+*/
+nav {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+nav ul {
+    display: inline;
+    list-style-type: none;
+    text-align: center;
+}
+
+nav li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+h1 {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    margin-top: 46px;
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 72px;
+    font-family: cursive;
+    width: 100%;
+    color: aliceblue;
+    background-color: black;
+}
+
+main {
+    margin-top: 150px;
+}
+
+img[src*="images/homepage banner.jpeg"] {
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main section {
+    height: 100%;
+    display: flex;
+}
+
+main section img {
+    height: 400px;
+    width: 33.33%;
+}
+
+/* 
+Directions
+*/
+
+iframe {
+    min-height: 450px;
+    min-width: 450px;
+    border: 0;
+}
+
+article {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+div>span {
+    font-weight: bold;
+}
+
+address>a {
+    font-style: normal;
+}
+
+address::before {
+    content: '📞';
+}
+
+.new {
+    font-size: 150%;
+}
+
+/*
+Menu
+*/
+
+table {
+    border: 1px solid;
+}
+
+tbody>tr:nth-child(even) {
+    background: lime;
+}
+
+tbody>tr:nth-child(odd) {
+    background: rgb(90, 225, 90);
+}
+
+td:first-child {
+    font-weight: bold;
+}
+
+tfoot {
+    font-size: 90%;
+    font-style: italic;
+}
+
+dt {
+    font-weight: bold;
+}
