@@ -129,3 +129,15 @@ tfoot {
 dt {
     font-weight: bold;
 }
+
+.gf::before {
+    content: 'gf';
+}
+
+.vf::before {
+    content: 'vg';
+}
+
+.gf.vf::before {
+    content: 'gv vg';
+}
