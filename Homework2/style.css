@@ -10,24 +10,35 @@ nav {
 }
 
 nav ul {
-    display: inline;
+    display: flex;
     list-style-type: none;
-    text-align: center;
-}
-
-nav li {
-    float: left;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration: none;
+    color: white;
 }
 
 li a {
-    display: block;
     color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
+#theme-toggle {
+    position: fixed;
+    top: 0;
+    right: 0;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+}
+
+/* Does not work on my computer for some reason*/
+.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
 li a:hover {
     background-color: #111;
 }
@@ -126,18 +137,42 @@ tfoot {
     font-style: italic;
 }
 
+dl {
+    padding: 3px;
+}
+
 dt {
     font-weight: bold;
+    padding: 3px;
 }
 
 .gf::before {
-    content: 'gf';
+    content: ' gf ';
+    font-style: italic;
 }
 
 .vf::before {
-    content: 'vg';
+    content: ' vg ';
+    font-style: italic;
 }
 
 .gf.vf::before {
-    content: 'gv vg';
+    content: ' gv vg ';
+    font-style: italic;
+}
+
+h2 {
+    padding: 1em;
+}
+
+section section {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 1em;
+}
+
+section>div {
+    font-weight: bold;
+    padding: 3px;
 }
