@@ -4,25 +4,25 @@ const start = document.getElementById("new_game")
 
 const memory = []
 
-function showMsg() {
-    if (toggleButton.innerText === 'Show') {
-        toggleButton.innerText = 'Hide'
-    } else {
-        toggleButton.innerText = 'Show'
+function toggleMsg() {
+    if (msg.style.display === "none") {
+        msg.style.display = "block"
     }
-
-
-
+    else {
+        msg.style.display = "none"
+    }
 }
 
 function buttonPress() {
     button.onclick = event => {
-        showMsg()
+        toggleMsg()
     }
 }
+
+
 
 function start() {
-    start.onclick = event => {
-
-    }
+    buttonPress()
 }
+
+start()
