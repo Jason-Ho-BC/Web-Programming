@@ -1,0 +1,73 @@
+h1 {
+    text-align: center;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    min-height: 500px;
+    padding: 1em;
+    justify-content: center;
+    margin: auto;
+}
+
+button {
+    min-width: 33%;
+    max-width: 100px;
+    border-radius: 5%;
+    border: none;
+    margin: 0.5px;
+    height: auto;
+}
+
+#new_game {
+    width: 100px;
+    height: 100px;
+    color: blue;
+    font-size: large;
+    align-items: center;
+}
+
+#hidden {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+}
+
+#butt1 {
+    background-color: mediumblue;
+}
+
+#butt2 {
+    background-color: purple;
+}
+
+#butt3 {
+    background-color: red;
+}
+
+#butt4 {
+    background-color: aqua;
+}
+
+#butt5 {
+    background-color: magenta;
+}
+
+#butt6 {
+    background-color: green;
+}
+
+#butt7 {
+    background-color: yellow;
+}
+
+#butt8 {
+    background-color: maroon;
+}
+
+#butt9 {
+    background-color: orange;
+}
