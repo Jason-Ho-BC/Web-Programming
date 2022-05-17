@@ -1,6 +1,11 @@
 /*
 Index
 */
+body {
+    background-color: #e7b87d;
+    color: #5a1e64;
+}
+
 nav {
     overflow: hidden;
     background-color: #333;
@@ -18,8 +23,12 @@ nav ul {
     color: white;
 }
 
-li a {
-    color: white;
+li a:visited {
+    color: #7af848;
+}
+
+li a:hover {
+    color: #fad14c;
 }
 
 #theme-toggle {
@@ -31,12 +40,12 @@ li a {
     border-radius: 50%;
     width: 26px;
     height: 26px;
+    margin: 5px;
 }
 
-/* Does not work on my computer for some reason*/
 .dark-mode {
-    background-color: #333;
-    color: white;
+    background-color: #46244C;
+    color: #D49B54;
 }
 
 li a:hover {
@@ -71,13 +80,19 @@ img[src*="images/homepage banner.jpeg"] {
 }
 
 main section {
-    height: 100%;
     display: flex;
+    flex-flow: row wrap;
 }
 
 main section img {
-    height: 400px;
-    width: 33.33%;
+    height: auto;
+    min-width: 400px;
+    min-height: 300px;
+    flex-basis: 33.333%;
+}
+
+main section p {
+    text-indent: 2em;
 }
 
 /* 
@@ -96,11 +111,11 @@ article {
     margin-bottom: 1em;
 }
 
-div>span {
+div span {
     font-weight: bold;
 }
 
-address>a {
+address a {
     font-style: normal;
 }
 
@@ -118,6 +133,7 @@ Menu
 
 table {
     border: 1px solid;
+    border-collapse: collapse;
 }
 
 tbody>tr:nth-child(even) {
@@ -163,16 +179,37 @@ dt {
 
 h2 {
     padding: 1em;
+    justify-content: left;
 }
 
+/*
+Attempt at lunch section
+Not being able to edit html is horrible
+*/
 section section {
     display: flex;
     flex-direction: column;
+    flex-basis: 100%;
+    margin-left: 8em;
     justify-content: left;
-    padding: 1em;
+    text-align: in;
 }
 
-section>div {
+section div {
     font-weight: bold;
     padding: 3px;
+}
+
+/* 
+Do we really need a horizontal line between Appetizer and Entree?
+My attempt is below
+*/
+section section:nth-child(3)::before {
+    margin: 3px 0px;
+    border-bottom: 1px solid black;
+    content: '';
+    position: absolute;
+    width: 625px;
+    height: 1px;
+    background: black;
 }
