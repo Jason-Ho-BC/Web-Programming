@@ -1,5 +1,14 @@
+body {
+    background-color: black;
+}
+
 h1 {
     text-align: center;
+    color: white;
+}
+
+footer {
+    color: white;
 }
 
 section {
@@ -34,40 +43,42 @@ button {
     font-weight: bold;
     text-align: center;
     display: none;
+    color: white;
 }
 
+#butt0 {
+    background-color: darkblue;
+}
+
+
 #butt1 {
-    background-color: mediumblue;
+    background-color: darkviolet;
 }
 
 #butt2 {
-    background-color: purple;
+    background-color: darkred;
 }
 
 #butt3 {
-    background-color: red;
+    background-color: darkcyan;
 }
 
 #butt4 {
-    background-color: aqua;
+    background-color: darkmagenta;
 }
 
 #butt5 {
-    background-color: magenta;
+    background-color: darkgreen;
 }
 
 #butt6 {
-    background-color: green;
+    background-color: darkolivegreen;
 }
 
 #butt7 {
-    background-color: yellow;
+    background-color: darkturquoise;
 }
 
 #butt8 {
-    background-color: maroon;
-}
-
-#butt9 {
-    background-color: orange;
+    background-color: darkorange;
 }
