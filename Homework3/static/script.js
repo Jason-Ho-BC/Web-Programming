@@ -1,7 +1,7 @@
 const msg = document.getElementById("hidden")
 const button = document.getElementById("butt1")
 const start = document.getElementById("new_game")
-const grid = document.getElementById("fuck")
+const grid = document.getElementById("butts")
 
 let memory = []
 let arr = []
@@ -14,28 +14,7 @@ let clicks = 0
 let arrLen = 0
 let num = 0
 
-async function getInfo() {
-    let responseID = await fetch(url, { method: 'GET' })
-    let stuff = await responseID.json()
-    arr = (stuff["currentSequence"])
-    arrLen = arr.length
-
-    flag = stuff.hasWon
-    console.log(flag)
-
-    // This is some weird stuff going on
-    // Found it on stackoverflow but it works
-    arr.forEach(function (element, index) {
-        setTimeout(function () {
-            //console.log(stuff)
-            console.log(arr)
-            console.log(element)
-            num = element
-            flash()
-        }, index * 1000)
-    })
-}
-
+// Get the game id from the server
 async function getID() {
     let responseID = await fetch('/game', { method: 'POST' })
     let ID = await responseID.text()
@@ -47,6 +26,29 @@ async function getID() {
     getInfo()
 }
 
+// Get the sequence from the server
+async function getInfo() {
+    let responseID = await fetch(url, { method: 'GET' })
+    let stuff = await responseID.json()
+    arr = (stuff["currentSequence"])
+    arrLen = arr.length
+
+    flag = stuff.hasWon
+    //console.log("Did I win? ", flag)
+
+    // Check if you've won
+    // If so display the messsage and disable the buttons
+    if (flag) {
+        toggleMsg()
+        disableButts()
+        return false
+    }
+
+    flash()
+}
+
+// Send the array sequence to the server
+// If the sequence was correct then grab the new sequence
 async function sendClick() {
     await fetch(url, {
         method: 'POST',
@@ -56,13 +58,17 @@ async function sendClick() {
         body: JSON.stringify(memory)
     })
         .then(response => {
-            console.log(response.status)
+            //console.log("Request response: ", response.status)
+            if ((response.status === 200) && (flag)) {
+                return
+            }
             if (response.status === 200) {
                 getInfo()
             }
         })
 }
 
+// Toggle the "You Win!" message
 function toggleMsg() {
     if (msg.style.display === "none") {
         msg.style.display = "block"
@@ -72,45 +78,83 @@ function toggleMsg() {
     }
 }
 
+// Flash each button once with a delay in between
 function flash() {
-    const foo = document.getElementById("butt" + num)
-    foo.style.filter = "brightness(1.75)"
+    arr.forEach(function (element, index) {
+        setTimeout(function () {
+            num = element
+            const foo = document.getElementById("butt" + num)
+            // Increase the brightness of the buttom
+            foo.style.filter = "brightness(1.75)"
 
-    setTimeout(() => {
-        foo.style.filter = "brightness(1.00)"
-    }, 500)
+            // Set the brightness back to normal after 500ms
+            setTimeout(() => {
+                foo.style.filter = "brightness(1.00)"
+            }, 500)
+        }, index * 1000)
+    })
 }
 
-start.onclick = event => {
-    memory = []
-    clicks = 0
-    getID()
-    recordClicks()
-}
-
+// Record the clicks of the user
 function recordClicks() {
     grid.onclick = function (event) {
-        let target = event.target; // where was the click?
+        // Where was the click?
+        let target = event.target;
 
-        if (target.tagName != 'BUTTON') return; // not on TD? Then we're not interested
+        // Not a button? Then we're not interested
+        if (target.tagName != 'BUTTON') return;
 
-        let correct = "butt" + num
-        console.log(correct)
+        // Grab the number of the button pressed
+        let press = target.id[4]
 
-        console.log(event.target.id)
+        // Added the number to the array to be sent
+        memory.push(press)
+        clicks++
 
-        arr.forEach(element => {
-            if (event.target.id === correct) {
-                memory.push(num)
-                clicks++
-            }
-        })
-
+        // Check if we have the right number of clicks
+        // If so send the array and reset clicks and the array
         if (clicks === arrLen) {
+            //console.log("Array being sent: ", memory)
             sendClick()
             clicks = 0
             memory = []
-            getInfo()
         }
     }
+}
+
+// Enable buttons to be clicked
+function enableButts() {
+    const button = document.querySelectorAll('button')
+
+    button.forEach(element => {
+        if (element.disabled === true) {
+            element.disabled = false
+        }
+    })
+}
+
+// Disabled buttons from being clicked
+function disableButts() {
+    const button = document.querySelectorAll('button')
+
+    button.forEach(element => {
+        element.disabled = true
+    })
+
+    start.disabled = false
+}
+
+// Start game button
+// Reset defaults
+// Enable buttons to be clicked
+// Get game id and start recording clicks
+start.onclick = event => {
+    if (flag) {
+        toggleMsg()
+    }
+    memory = []
+    clicks = 0
+    enableButts()
+    getID()
+    recordClicks()
 }

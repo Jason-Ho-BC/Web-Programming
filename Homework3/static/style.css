@@ -30,12 +30,16 @@ button {
     height: auto;
 }
 
+div {
+    display: flex;
+    justify-content: center;
+}
+
 #new_game {
-    width: 100px;
+    min-width: 200px;
     height: 100px;
     color: blue;
     font-size: large;
-    align-items: center;
 }
 
 #hidden {
