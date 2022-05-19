@@ -2,7 +2,6 @@ const msg = document.getElementById("hidden")
 const button = document.getElementById("butt1")
 const start = document.getElementById("new_game")
 const grid = document.getElementById("fuck")
-document.quer
 
 let memory = []
 let arr = []
