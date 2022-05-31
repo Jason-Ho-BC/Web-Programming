@@ -19,6 +19,7 @@
 nav {
   text-align: center;
   justify-content: center;
+  list-style-type: none;
 }
 
 nav ul {

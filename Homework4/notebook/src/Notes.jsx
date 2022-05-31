@@ -6,6 +6,7 @@ import { CONFIRM, CANCEL } from './actions'
 
 function Notes() {
     const [text, setText] = useState('')
+    const [title, setTitle] = useState('')
     const dispatch = useDispatch()
     const onTextChange = event => {
         setText(event.target.value)
@@ -26,11 +27,14 @@ function Notes() {
     }
 
     return (
-        <fieldset>
-            <button onClick={Confirm}>Confirm</button>
-            <button onClick={Cancel}>Cancel</button>
-            <textarea value={text} onChange={onTextChange} type="text"></textarea>
-        </fieldset>
+        <div>
+            <header>{title.text}</header>
+            <fieldset>
+                <button onClick={Confirm}>Confirm</button>
+                <button onClick={Cancel}>Cancel</button>
+                <textarea value={text} onChange={onTextChange} type="text"></textarea>
+            </fieldset>
+        </div>
     )
 }
 

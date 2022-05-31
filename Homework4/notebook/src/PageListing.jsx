@@ -1,14 +1,21 @@
 import React from 'react'
 import { useState } from "react"
 import { useDispatch } from "react-redux"
+import { useSelector } from 'react-redux'
 import { ADD_PAGE } from './actions'
 
-export default function TodoForm() {
-    const [text, setText] = useState('Untitled')
+function PageItem({ item, index }) {
+    return (
+        item.text
+    )
+}
+
+function PageListing() {
+    const [text, setText] = useState('')
     const dispatch = useDispatch()
-    const onTextChange = event => {
-        setText(event.target.value)
-    }
+
+    const pages = useSelector(state => state.pages)
+
     const addClick = () => {
         dispatch({
             type: ADD_PAGE,
@@ -16,19 +23,16 @@ export default function TodoForm() {
         })
     }
     return (
-        <ul>
-            <li>
-                <button onClick={addClick}>Add Page</button>
-            </li>
-            <li>
-                Page 1
-            </li>
-            <li>
-                Page 2
-            </li>
-            <li>
-                Page 3
-            </li>
-        </ul>
+        <div>
+            {
+                pages.map((item, index) => (
+                    <li key={index}>
+                        <PageItem key={index} item={item} index={index} />
+                    </li>
+                ))
+            }
+        </div>
     )
 }
+
+export default PageListing

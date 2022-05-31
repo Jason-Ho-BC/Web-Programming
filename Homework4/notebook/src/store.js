@@ -2,7 +2,9 @@ import { createStore } from 'redux'
 import { ADD_PAGE, CONFIRM, CANCEL } from './actions'
 
 const defaultState = {
-    todos: [{ text: 'make this app do something' }]
+    todos: [{ text: 'make this app do something' }],
+    pages: [],
+    titles: [{ text: "fuck" }]
 }
 
 function rootReducer(state, action) {
@@ -14,14 +16,14 @@ function rootReducer(state, action) {
         case ADD_PAGE:
             return {
                 ...state,
-                todos: [...state.todos, { text: action.text, done: false }]
+                pages: [...state.pages, { text: action.text }]
             }
     }
     switch (action.type) {
         case CONFIRM:
             return {
                 ...state,
-                todos: [...state.todos, { text: action.text, done: false }]
+                todos: [...state.todos, { text: action.text }]
             }
     }
     switch (action.type) {

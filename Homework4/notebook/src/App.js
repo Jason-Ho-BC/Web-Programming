@@ -4,6 +4,7 @@ import store from './store'
 import { Provider } from 'react-redux'
 import PageListing from './PageListing'
 import Notes from './Notes'
+import AddPage from './AddPage'
 
 export function App() {
   return (
@@ -12,6 +13,7 @@ export function App() {
         <section className="App-header">
           <div id="Sidebar">
             <nav>
+              <AddPage />
               <PageListing />
             </nav>
           </div>
