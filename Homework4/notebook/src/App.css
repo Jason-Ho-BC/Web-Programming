@@ -35,6 +35,10 @@ ul {
   padding-inline-start: 0px;
 }
 
+li {
+  list-style-type: none;
+}
+
 nav ul li {
   list-style-type: none;
   margin-block-start: none;

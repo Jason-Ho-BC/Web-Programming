@@ -14,7 +14,7 @@ function PageListing() {
     const [text, setText] = useState('')
     const dispatch = useDispatch()
 
-    const pages = useSelector(state => state.pages)
+    const titles = useSelector((state) => state.titles)
 
     const addClick = () => {
         dispatch({
@@ -25,7 +25,7 @@ function PageListing() {
     return (
         <div>
             {
-                pages.map((item, index) => (
+                titles.map((item, index) => (
                     <li key={index}>
                         <PageItem key={index} item={item} index={index} />
                     </li>

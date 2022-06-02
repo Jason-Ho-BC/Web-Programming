@@ -1,10 +1,10 @@
 import { createStore } from 'redux'
-import { ADD_PAGE, CONFIRM, CANCEL } from './actions'
+import { ADD_PAGE, CONFIRM, CANCEL, DELETE, EDIT } from './actions'
 
 const defaultState = {
     todos: [{ text: 'make this app do something' }],
-    pages: [],
-    titles: [{ text: "fuck" }]
+    titles: ['fuck'],
+    body: ['stuff'],
 }
 
 function rootReducer(state, action) {
@@ -16,18 +16,30 @@ function rootReducer(state, action) {
         case ADD_PAGE:
             return {
                 ...state,
-                pages: [...state.pages, { text: action.text }]
+                titles: [...state.titles, { text: action.text }]
             }
     }
     switch (action.type) {
         case CONFIRM:
             return {
                 ...state,
-                todos: [...state.todos, { text: action.text }]
+                body: [...state.body, { text: action.text }]
             }
     }
     switch (action.type) {
         case CANCEL:
+            return {
+                ...state
+            }
+    }
+    switch (action.type) {
+        case DELETE:
+            return {
+                ...state
+            }
+    }
+    switch (action.type) {
+        case EDIT:
             return {
                 ...state
             }
