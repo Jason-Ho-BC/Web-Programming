@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from "react-redux"
 import { useSelector } from 'react-redux'
 import { useState } from "react"
@@ -23,6 +23,11 @@ function FindIndex() {
 
     return "Hi"
 }
+
+//Use this to load and update localstorage
+useEffect(() => {
+
+})
 
 function Notes() {
     const [text, setText] = useState('')

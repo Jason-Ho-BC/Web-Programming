@@ -1,9 +1,8 @@
 import { createStore } from 'redux'
 import { ADD_PAGE, CONFIRM, CANCEL, DELETE, EDIT } from './actions'
-
 const defaultState = {
     todos: [{ text: 'make this app do something' }],
-    titles: ['fuck'],
+    titles: ['title'],
     body: ['stuff'],
 }
 
