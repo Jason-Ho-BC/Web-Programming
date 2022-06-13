@@ -1,0 +1,83 @@
+GET http://localhost:3000/surveys
+
+###
+
+GET http://localhost:3000/surveys/62a680a705dfb1fe328181ac
+
+###
+
+POST http://localhost:3000/surveys
+Content-Type: application/json
+
+{
+    "name": "Electives",
+    "dateCloses": "2023-06-12T23:19:00.000Z",
+    "owner": "Jason",
+    "published": false,
+    "question": {
+        "prompt": "What electives",
+        "answers": ["CS380", "CS455", "CS460"]
+    },
+    "responses": [{
+        "name": "Jarrel",
+        "choice": "CS380"
+    },
+    {   "name": "Conner",
+        "choice": "CS455"}
+    ]
+}
+
+###
+
+DELETE http://localhost:3000/surveys/62a68e05e7c9d907120d3c3b
+
+###
+
+PATCH http://localhost:3000/surveys/status/62a6745f11f3e4f9f6e92c94
+Content-Type: application/json
+
+{
+    "published": true
+}
+
+###
+
+PATCH http://localhost:3000/surveys/question/62a680a705dfb1fe328181ac
+Content-Type: application/json
+
+{
+    "question": {
+        "prompt": "Where am I?"
+    }
+}
+
+###
+
+GET http://localhost:3000/surveys/current
+
+###
+
+PATCH http://localhost:3000/surveys/user/62a691fd86d039bffe07b067
+Content-Type: application/json
+
+{
+    "responses": {
+        "name": "Liam",
+        "choice": "CS460"
+    }
+}
+
+###
+
+PATCH http://localhost:3000/surveys/user/delete/62a691fd86d039bffe07b067
+Content-Type: application/json
+
+{
+    "responses": {
+        "name": "Liam"
+    }
+}
+
+###
+
+GET http://localhost:3000/surveys/responses/62a680a705dfb1fe328181ac
