@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const surverySchema = new mongoose.Schema({
-    // Name
+    // Name of survey
     name: {
         type: String,
         required: true

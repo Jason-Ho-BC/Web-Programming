@@ -2,7 +2,7 @@ GET http://localhost:3000/surveys
 
 ###
 
-GET http://localhost:3000/surveys/62a680a705dfb1fe328181ac
+GET http://localhost:3000/surveys/62a7b588dfd26e7c18503f7c
 
 ###
 
@@ -29,11 +29,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/surveys/62a68e05e7c9d907120d3c3b
+DELETE http://localhost:3000/surveys/62a7cc44e5943024e89b5d45
 
 ###
 
-PATCH http://localhost:3000/surveys/status/62a6745f11f3e4f9f6e92c94
+PUT http://localhost:3000/surveys/62a7cc44e5943024e89b5d45/status
 Content-Type: application/json
 
 {
@@ -42,7 +42,7 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:3000/surveys/question/62a680a705dfb1fe328181ac
+PUT http://localhost:3000/surveys/62a7ce0cf58c5400d567d29d/question
 Content-Type: application/json
 
 {
@@ -57,27 +57,20 @@ GET http://localhost:3000/surveys/current
 
 ###
 
-PATCH http://localhost:3000/surveys/user/62a691fd86d039bffe07b067
+PUT http://localhost:3000/surveys/62a7ce0cf58c5400d567d29d/user
 Content-Type: application/json
 
 {
     "responses": {
-        "name": "Liam",
+        "name": "Colby",
         "choice": "CS460"
     }
 }
 
 ###
 
-PATCH http://localhost:3000/surveys/user/delete/62a691fd86d039bffe07b067
-Content-Type: application/json
-
-{
-    "responses": {
-        "name": "Liam"
-    }
-}
+DELETE http://localhost:3000/surveys/62a7ce0cf58c5400d567d29d/Liam/delete
 
 ###
 
-GET http://localhost:3000/surveys/responses/62a680a705dfb1fe328181ac
+GET http://localhost:3000/surveys/62a7ce0cf58c5400d567d29d/responses
