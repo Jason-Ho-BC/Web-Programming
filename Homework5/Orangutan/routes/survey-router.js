@@ -4,6 +4,7 @@ const router = express.Router()
 const Survey = require('../models/survey')
 
 // Create a survey
+// if it does't already exist
 router.post('/', async (req, res) => {
     const survey = new Survey({
         name: req.body.name,
@@ -15,9 +16,21 @@ router.post('/', async (req, res) => {
         responses: req.body.responses
     })
 
+    // Check if it already exists
+    const surveyCount = await Survey.find({
+        name: req.body.name
+    })
+
+    // If it doesn't exist
+    // then create it 
     try {
-        const newSurvey = await survey.save()
-        res.status(201).json(newSurvey)
+        if (surveyCount.length === 0) {
+            const newSurvey = await survey.save()
+            res.status(201).json(newSurvey)
+        }
+        else {
+            res.json({ message: "A survey with that name already exists." })
+        }
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
